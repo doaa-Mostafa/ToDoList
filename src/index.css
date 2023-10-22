@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Open+Sans:wght@400;700&family=Roboto:wght@100;300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #e0eef3;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+.todo__container {
+  background-color: #e0eef3;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(50, 100, 150, 0.3);
+  transition: all 0.2s;
+  position: relative;
+}
+
+li {
+  list-style-type: none; /* Remove the bullets */
+  margin-top: 40px;
+  position: relative;
+  cursor: pointer;
+}
+li::before {
+  content: "🫧";
+  margin-right: 10px;
+}
+
+input {
+  border: 1px solid white;
+  border-right: none;
+  background: none;
+  padding: 10px;
+  caret-color: var(--main-color);
+  background-color: #ffff;
+}
+input:focus {
+  outline: none;
+}
+.input__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 10px;
+}
+
+.add__button {
+  cursor: pointer;
+  width: 130px;
+  background: linear-gradient(135deg, #6c63ff, #9457fc);
+  color: white;
+  padding: 10px;
+  border: 1px solid white;
+  text-transform: uppercase;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+.todo {
+  cursor: pointer;
+}
+.todo__container:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s;
+  box-shadow: 0 5px 20px rgba(50, 100, 150, 0.3);
+}
+
+.reset::before {
+  content: "🗓️";
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: linear-gradient(135deg, #6c63ff, #9457fc);
+  padding: 5px;
+  display: flex;
+  color: white;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
