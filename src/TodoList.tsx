@@ -7,14 +7,13 @@ interface item {
 }
 
 const TodoList: React.FC = () => {
- 
   // Load saved todos from local storage or initialize with default values
   const storedTodos = localStorage.getItem("todos");
   const initialTodos: item[] = storedTodos
     ? JSON.parse(storedTodos)
     : [
         { id: 1, text: "Learn Typescript", completed: false },
-        { id: 2, text: "Add todos", completed: false },
+        { id: 2, text: "use vite", completed: false },
       ];
 
   const [todos, setTodos] = useState<item[]>(initialTodos);
@@ -47,6 +46,8 @@ const TodoList: React.FC = () => {
 
     const newTodo: item = { id: Date.now(), text: addToDo, completed: false };
     setTodos([...todos, newTodo]);
+    // Clear the input field
+    setAddToDo("");
   };
 
   // Function to handle input changes and validation
@@ -55,11 +56,12 @@ const TodoList: React.FC = () => {
       setIsValid(true);
     }
     setAddToDo(e.target.value);
+    
   };
 
   // Function to clear all todos
   const handleReset = () => {
-    setTodos([]); 
+    setTodos([]);
   };
   return (
     <div className="container">
@@ -86,6 +88,7 @@ const TodoList: React.FC = () => {
             type="text"
             placeholder="Add new todo "
             onChange={inputToDo}
+            value={addToDo}
           />
           <button className="add__button" onClick={handleSubmit}>
             add
